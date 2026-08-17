@@ -99,16 +99,6 @@ The project includes visualizations and analysis of:
 
 ---
 
-## 📁 Project Structure
-
-```
-Hybrid-Ecommerce-Recommendation-System/
-│
-├── E-commerce.ipynb
-├── walmart_dataset.csv
-├── README.md
-└── requirements.txt
-```
 
 ---
 
