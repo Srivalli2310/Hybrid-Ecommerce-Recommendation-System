@@ -1,5 +1,6 @@
 import os
 
+import certifi
 from dotenv import load_dotenv
 from pymongo import MongoClient
 
@@ -18,7 +19,7 @@ if not DATABASE_NAME:
     raise ValueError("DATABASE_NAME is missing from .env")
 
 
-client = MongoClient(MONGO_URI)
+client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
 
 db = client[DATABASE_NAME]
 
