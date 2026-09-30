@@ -1,10 +1,6 @@
 # 🛒 Hybrid E-Commerce Recommendation System (ShopSphere)
 
 > 🌐 **Live Website**: [https://shopsphere-l5j1.onrender.com/](https://shopsphere-l5j1.onrender.com/)  
-> 🩺 **System Health Check**: [https://shopsphere-l5j1.onrender.com/health](https://shopsphere-l5j1.onrender.com/health)  
-> 🛍️ **Product Catalog**: [https://shopsphere-l5j1.onrender.com/products](https://shopsphere-l5j1.onrender.com/products)  
-> 📡 **Recommendation API**: [https://shopsphere-l5j1.onrender.com/api/recommendations?top_n=5](https://shopsphere-l5j1.onrender.com/api/recommendations?top_n=5)
-
 
 ## 🌟 Key Features
 
@@ -23,11 +19,7 @@
   - Session management with flash messaging.
 - **🔌 RESTful API Endpoints**:
   - Programmatic recommendation access (`/api/recommendations`).
-  - System health monitoring (`/health`).
-- **☁️ Cloud Production Ready**:
-  - Gunicorn WSGI configuration with multi-threading and worker timeout handling.
-  - One-click Render and Railway deployment support.
-  - Docker containerization support with health checks.
+  
 
 ---
 
@@ -40,7 +32,6 @@
 | **Database** | MongoDB Atlas (PyMongo) | User profiles, cart sessions, orders, interactions |
 | **ML & NLP** | Scikit-learn, SpaCy, Pandas, NumPy | TF-IDF vectorization, cosine similarity, data preprocessing |
 | **Frontend** | HTML5, CSS3, JavaScript | Responsive modern UI with real-time AJAX interactions |
-| **Containerization** | Docker, Docker Compose | Consistent reproducible environment |
 
 ---
 
