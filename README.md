@@ -1,12 +1,16 @@
-# 🛒 Hybrid E-Commerce Recommendation System
+# 🛒 Hybrid E-Commerce Recommendation System (ShopSphere)
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://shopsphere-l5j1.onrender.com/)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![Flask](https://img.shields.io/badge/Flask-3.1.3-000000?style=for-the-badge&logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
 [![MongoDB](https://img.shields.io/badge/MongoDB%20Atlas-4.17-47A248?style=for-the-badge&logo=mongodb&logoColor=white)](https://www.mongodb.com/cloud/atlas)
 [![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.7-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)](https://scikit-learn.org/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
+[![Status](https://img.shields.io/badge/Deployment-Live%20%26%20Online-success?style=for-the-badge)](https://shopsphere-l5j1.onrender.com/)
 
-An enterprise-ready **Hybrid E-Commerce Product Recommendation Web Application** built with Python, Flask, MongoDB Atlas, and Machine Learning. The platform combines **Popularity-Based**, **Content-Based (TF-IDF + Cosine Similarity)**, and **Collaborative Filtering** to deliver personalized recommendations with real-time cart, order management, and user interaction tracking.
+> 🌐 **Live Website**: [https://shopsphere-l5j1.onrender.com/](https://shopsphere-l5j1.onrender.com/)  
+> 🩺 **System Health Check**: [https://shopsphere-l5j1.onrender.com/health](https://shopsphere-l5j1.onrender.com/health)  
+> 🛍️ **Product Catalog**: [https://shopsphere-l5j1.onrender.com/products](https://shopsphere-l5j1.onrender.com/products)  
+> 📡 **Recommendation API**: [https://shopsphere-l5j1.onrender.com/api/recommendations?top_n=5](https://shopsphere-l5j1.onrender.com/api/recommendations?top_n=5)
 
 ---
 
