@@ -8,15 +8,15 @@ from pymongo import MongoClient
 load_dotenv()
 
 
-MONGO_URI = os.getenv("MONGO_URI")
-DATABASE_NAME = os.getenv("DATABASE_NAME")
+MONGO_URI = (os.getenv("MONGO_URI") or "").strip()
+DATABASE_NAME = (os.getenv("DATABASE_NAME") or "hybrid_ecommerce").strip()
 
 
 if not MONGO_URI:
-    raise ValueError("MONGO_URI is missing from .env")
+    raise ValueError("MONGO_URI is missing from .env or environment variables")
 
 if not DATABASE_NAME:
-    raise ValueError("DATABASE_NAME is missing from .env")
+    raise ValueError("DATABASE_NAME is missing from .env or environment variables")
 
 
 client = MongoClient(MONGO_URI, tlsCAFile=certifi.where())
