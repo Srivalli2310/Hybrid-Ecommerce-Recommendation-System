@@ -50,10 +50,9 @@ class HybridRecommender:
         self.popular_items["Rating"] = self.popular_items["Rating"].round(1)
         self.popular_items["ReviewCount"] = self.popular_items["ReviewCount"].astype(int)
 
-        # 2. Content-Based TF-IDF & Cosine Similarity (Notebook cells 41-42, 52)
-        self.tfidf_vectorizer = TfidfVectorizer(stop_words="english")
+        # 2. Content-Based TF-IDF (Notebook cells 41-42, 52)
+        self.tfidf_vectorizer = TfidfVectorizer(stop_words="english", max_features=5000)
         self.tfidf_matrix = self.tfidf_vectorizer.fit_transform(self.data["Tags"].astype(str))
-        self.cosine_sim_content = cosine_similarity(self.tfidf_matrix, self.tfidf_matrix)
 
         # Create quick index lookup mapping by name (exact and normalized)
         self.name_to_index = {}
@@ -66,15 +65,13 @@ class HybridRecommender:
                 if lower_name not in self.name_to_index:
                     self.name_to_index[lower_name] = idx
 
-        # 3. Collaborative Filtering Matrix & Similarities (Notebook cells 56-57, 66)
+        # 3. Collaborative Filtering Matrix (Notebook cells 56-57, 66)
         self.user_item_matrix = self.data.pivot_table(
             index="Id",
             columns="ProdId",
             values="Rating",
             aggfunc="mean"
         ).fillna(0)
-
-        self.user_similarity = cosine_similarity(self.user_item_matrix)
 
     def _format_result(self, df, top_n, as_dict=False):
         """Formats and limits the recommendation dataframe."""
@@ -115,7 +112,9 @@ class HybridRecommender:
             # Item not present
             return [] if as_dict else pd.DataFrame(columns=DISPLAY_COLUMNS)
 
-        similar_items = list(enumerate(self.cosine_sim_content[item_index]))
+        item_vec = self.tfidf_matrix[item_index]
+        sim_scores = cosine_similarity(item_vec, self.tfidf_matrix).flatten()
+        similar_items = list(enumerate(sim_scores))
         similar_items = sorted(similar_items, key=lambda x: x[1], reverse=True)
 
         # Exclude the item itself
@@ -143,7 +142,8 @@ class HybridRecommender:
             return [] if as_dict else pd.DataFrame(columns=DISPLAY_COLUMNS)
 
         target_user_index = self.user_item_matrix.index.get_loc(target_user_id)
-        user_similarities = self.user_similarity[target_user_index]
+        target_vec = self.user_item_matrix.iloc[[target_user_index]]
+        user_similarities = cosine_similarity(target_vec, self.user_item_matrix).flatten()
 
         # Sort users by similarity in descending order (excluding target user)
         similar_users_indices = user_similarities.argsort()[::-1][1:]
